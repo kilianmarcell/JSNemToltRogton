@@ -12,12 +12,21 @@ function szinValtas() {
     }
 }
 
+let idozizoId = null;
+
 function katt() {
-    setTimeout(szinValtas, 3000);
+    //setTimeout(szinValtas, 3000);
+    stop();
+    idozizoId = setInterval(szinValtas, 1000);
+}
+
+function stop() {
+    clearInterval(idozizoId);
 }
 
 function init() {
     document.getElementById("gomb").addEventListener("click", katt);
+    document.getElementById("stop").addEventListener("click", stop);
 }
 
 document.addEventListener("DOMContentLoaded", init);
